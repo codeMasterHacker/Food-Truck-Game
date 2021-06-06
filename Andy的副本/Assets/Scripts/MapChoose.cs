@@ -7,9 +7,12 @@ public class MapChoose : MonoBehaviour
     public GameObject maincam;
     public GameObject truck;
     public GameObject truckModel;
+    public GameObject apFoodTruckPanel, chefsPanel;
+
     private AudioSource[] AudioPlayer;
     private List<AudioSource> soundList;
     public List<AudioClip> soundClips;
+
     void Start()
     {
         truckModel = truck.GetComponent<TruckAcquire>().truckChosen;
@@ -56,6 +59,10 @@ public class MapChoose : MonoBehaviour
                 audio.Play();
             }
         }
+
+        chefsPanel.SetActive(true);
+        apFoodTruckPanel.SetActive(true);
+        yield return new WaitForSeconds(3);
     }
 
     IEnumerator PGDelay()
@@ -71,12 +78,16 @@ public class MapChoose : MonoBehaviour
                 audio.Play();
             }
         }
+
+        chefsPanel.SetActive(true);
+        apFoodTruckPanel.SetActive(true);
+        yield return new WaitForSeconds(3);
     }
 
     IEnumerator APDelay()
     {
         yield return new WaitForSeconds(5);
-        maincam.transform.position = new Vector3(437.36f, 3.029f, -150.4f);
+        maincam.transform.position = new Vector3(155f, 3f, -240f);
         maincam.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         truckModel.transform.position = new Vector3(437.36f, 3.029f, -155.4f);
         foreach (AudioSource audio in soundList)
@@ -87,5 +98,9 @@ public class MapChoose : MonoBehaviour
                 audio.Play();
             }
         }
+
+        chefsPanel.SetActive(true);
+        apFoodTruckPanel.SetActive(true);
+        yield return new WaitForSeconds(3);
     }
 }
