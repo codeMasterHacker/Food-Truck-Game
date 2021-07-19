@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 50e5a1ca55a7b22479afde613a76227d
+  - enabled: 1
+    path: Assets/Scenes/Yellow Truck Inside.unity
+    guid: 5bc8910e0e12f4b979c1e8f7b0d1280f
   m_configObjects: {}

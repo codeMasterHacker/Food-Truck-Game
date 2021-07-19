@@ -1,0 +1,19 @@
+foods :[
+	{
+		name: "Tacos",
+		description: "Hard and soft tortillas with meat",
+		price: 1.00
+	},
+
+	{
+		name: "Hamburgers",
+		description: "Two buns with meat patty and other toppings in-between",
+		price: 4.00
+	},
+
+	{
+		name: "Hotdogs",
+		description: "Cylinder sliced bun with a sausage and other toppings inside",
+		price: 2.00
+	}
+]

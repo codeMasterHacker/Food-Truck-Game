@@ -1,11 +1,9 @@
 ﻿<Properties StartupConfiguration="{C38A35DD-2588-0889-363A-B50DD9EF2235}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OrderingFood.cs">
     <Files>
-      <File FileName="Assets/Scripts/OrderingFood.cs" Line="14" Column="50" />
-      <File FileName="Assets/Scripts/MapChoose.cs" Line="50" Column="28" />
-      <File FileName="Assets/Scripts/GameController.cs" />
-      <File FileName="Assets/Scripts/ChefSelectButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FoodMenuScript.cs" Line="39" Column="50" />
+      <File FileName="Assets/Scripts/MapChoose.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/OrderingFood.cs" Line="32" Column="68" />
+      <File FileName="Assets/Scripts/Locations.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +11,7 @@
           <Node name="Andy的副本" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="OrderingFood.cs" selected="True" />
+                <Node name="MapChoose.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -23,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f300d417-5dcf-4143-b950-0eeb10592f96" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="46e50612-0c2c-4060-af17-9e35cc474ca6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

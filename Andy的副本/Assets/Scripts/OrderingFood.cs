@@ -1,36 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class OrderingFood : MonoBehaviour
 {
-    public GameObject foodMenuPanelPanel, displayFoodOrdersPanel;
-    public GameObject[] customerPrefabs;
-    public int numCustomers = 1;
+    public GameObject foodMenuPanelPanel;
+    public GameObject[] customerLocations;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        if (numCustomers < 1 || numCustomers > 6)
-            numCustomers = 2;
-    }
+    //void Start()
+    //{
+
+    //}
 
     // Update is called once per frame
     //void Update()
     //{
 
     //}
-
-    //access to the food menu panel and its children
-    //create an array of food items/names
-    //generate a random number between 1 and 10
-    //create an array of the that size, representing the number of customers
-    //randomly pick customer prefabs
-
-    //for each customer, play their animation (walking up to food truck)
-    //for each customer, display a text representing their order (food name + number of food items), pause for 2 seconds
-    //after everyone orders, pause for 3 seconds
-    //switch to food making scene
 
     public void OrderFood()
     {
@@ -40,13 +29,66 @@ public class OrderingFood : MonoBehaviour
         for (int i = 0; i < size; i++)
             foods[i] = foodMenuPanelPanel.transform.GetChild(i).gameObject.GetComponent<FoodMenuScript>().foodMenuNameText.text;
 
+        GameObject mapChoose = GameObject.Find("Canvas/MapChoose");
+        int location = mapChoose.GetComponent<MapChoose>().intLocation;
+
+        int numCustomers = customerLocations[location].transform.childCount;
+
         System.Random random = new System.Random();
-        int index = random.Next(customerPrefabs.Length);
+        int index = random.Next(2, numCustomers);
+
+        GameObject customer;
+        List<GameObject> customers = new List<GameObject>();
 
         for (int i = 0; i < numCustomers; i++)
         {
-            GameObject customerGameObject = Instantiate(customerPrefabs[index], this.gameObject.transform);
-            //play animation
+            if (i % index == 0)
+            {
+                customer = customerLocations[location].transform.GetChild(i).gameObject;
+                customer.SetActive(true);
+                customers.Add(customer);
+            }
         }
+
+        StartCoroutine(DisplayOrders(customers, foods));
+    }
+
+    IEnumerator DisplayOrders(List<GameObject> customers, string[] foods)
+    {
+        System.Random random = new System.Random();
+        int randFood, randQuantity;
+
+        GameObject orderTextGameObject;
+        TextMeshPro orderText;
+
+        foreach (GameObject customer in customers)
+        {
+            orderTextGameObject = customer.transform.GetChild(customer.transform.childCount-1).gameObject;
+            orderTextGameObject.SetActive(true);
+
+            randQuantity = random.Next(1, 11);
+            randFood = random.Next(foods.Length);
+
+            orderText = orderTextGameObject.GetComponent<TextMeshPro>();
+            orderText.text = randQuantity + " " + foods[randFood];
+
+            yield return new WaitForSeconds(3);
+
+            orderTextGameObject.SetActive(false);
+        }
+
+        //yield return new WaitForSeconds(3);
+
+        char truckChosen = GameObject.Find("TruckChosen/Truck").GetComponent<TruckAcquire>().truckColor;
+
+        switch (truckChosen)
+        {
+            case 'b': SceneManager.LoadScene("Blue Truck Inside"); break;
+            case 'r': SceneManager.LoadScene("Red Truck Inside"); break;
+            default: SceneManager.LoadScene("Yellow Truck Inside"); break;
+        }
+
+        // if statement checking for which truck we have
+        //SceneManager.LoadScene("Food Making Scene");
     }
 }

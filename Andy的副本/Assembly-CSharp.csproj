@@ -64,11 +64,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ReturnMain.cs" />
     <Compile Include="Assets\Scripts\Chef.cs" />
     <Compile Include="Assets\Scripts\ChefSelectButtonScript.cs" />
+    <Compile Include="Assets\Scripts\Cooker.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
     <Compile Include="Assets\Scripts\FoodMenuScript.cs" />
+    <Compile Include="Assets\Scripts\FoodsMap.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Locations.cs" />
     <Compile Include="Assets\Scripts\MapChoose.cs" />
     <Compile Include="Assets\Scripts\OrderingFood.cs" />
     <Compile Include="Assets\Scripts\TruckAcquire.cs" />
