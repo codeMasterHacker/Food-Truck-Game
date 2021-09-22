@@ -24,10 +24,14 @@ public class FoodMenuScript : MonoBehaviour
 
     public void PopulateFoodMenu()
     {
-        chefsPanel.SetActive(false);
-        foodMenuPanel.SetActive(true);
-
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+
+        if (chefsPanel != null)
+        {
+            chefsPanel.SetActive(false);
+        }
+        
+        foodMenuPanel.SetActive(true);
 
         Chef[] chefs = gameController.chefs;
 
